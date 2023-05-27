@@ -15,6 +15,13 @@ return new class extends Migration
     {
         Schema::create('managers', function (Blueprint $table) {
             $table->id();
+
+
+            $table->string('name');
+            $table->string('slug')->unique();
+            $table->foreignId('location_id')->constrained();
+
+            $table->softDeletes();
             $table->timestamps();
         });
     }

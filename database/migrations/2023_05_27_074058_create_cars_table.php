@@ -15,8 +15,21 @@ return new class extends Migration
     {
         Schema::create('cars', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('slug')->unique();
+
+            $table->foreignId('driver_id')->constrained();
+            $table->foreignId('location_id')->constrained();
+            $table->foreignId('type_id')->constrained();
+
+            $table->string('photos')->nullable();
+
+            $table->string('service')->nullable();
+            $table->string('consume_oil')->nullable();
+
+            $table->softDeletes();
             $table->timestamps();
-            
+
         });
     }
 
