@@ -16,6 +16,11 @@ class IsManager
      */
     public function handle(Request $request, Closure $next)
     {
-        return $next($request);
+        if (auth()->check() && auth()->user()->roles == "MANAGER") {
+            return $next($request);
+        }
+
+        return redirect('/');
+
     }
 }
