@@ -2,7 +2,7 @@
     <x-slot name="title">manager</x-slot>
     <x-slot name="header">
         <h2 class="text-xl font-semibold leading-tight text-gray-800">
-            {{ __('Booking') }}
+            {{ __('Rents') }}
         </h2>
     </x-slot>
 
@@ -73,7 +73,7 @@
             <div class="overflow-hidden shadow sm:rounded-md">
                 <a class="btn btn-info btn-primary active" href="{{ route('manager.rents.export') }}">
                     <i class="fa fa-upload" aria-hidden="true"></i>
-                    Export User</a>
+                    Export Riwayat penyewaan</a>
                 <div class="px-4 py-5 bg-white sm:p-6">
                     <table id="dataTable">
                         <thead>

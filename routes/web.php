@@ -19,9 +19,10 @@ use App\Http\Controllers\Manager\RentController as ManagerRentController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/', [LandingController::class, 'index'])->name('index');
+Route::get('/detail/{slug}', [DetailController::class, 'index'])->name('detail');
+
 
 Route::prefix('manager')->name('manager.')->middleware([
     'auth:sanctum',
