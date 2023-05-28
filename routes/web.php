@@ -35,6 +35,8 @@ Route::prefix('manager')->name('manager.')->middleware([
     Route::resource('drivers', ManagerDriverController::class);
     Route::resource('cars', ManagerCarController::class);
     Route::resource('rents', ManagerRentController::class);
+    Route::get('rents/export', [ManagerRentController::class, 'export'])->name('rents.export');
+
 
 });
 

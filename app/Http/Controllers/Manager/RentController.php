@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Rent;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
+use App\Exports\RentsExport;
+use App\Exports\DataExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class RentController extends Controller
 {
@@ -91,19 +94,10 @@ class RentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
-    }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+public function export()
+{
+    return Excel::download(new RentsExport, 'rents.xlsx');
+}
+
 }
