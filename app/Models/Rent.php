@@ -8,4 +8,26 @@ use Illuminate\Database\Eloquent\Model;
 class Rent extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'user_id',
+        'car_id',
+        'driver_id',
+        'manager_id',
+        'start_date',
+        'end_date',
+        'status'
+    ];
+    protected $dates = [
+        'start_date',
+        'end_date',
+    ];
+    public function car()
+    {
+        return $this->belongsTo(Car::class);
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
