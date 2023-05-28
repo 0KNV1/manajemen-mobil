@@ -1,7 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Manager\DashboardController as ManagerDashboardController;
+use App\Http\Controllers\Manager\LocationController as ManagerLocationController;
+use App\Http\Controllers\Manager\TypeController as ManagerTypeController;
+use App\Http\Controllers\Manager\DriverController as ManagerDriverController;
+use App\Http\Controllers\Manager\CarController as ManagerCarController;
+use App\Http\Controllers\Manager\RentController as ManagerRentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,12 +22,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware([
+Route::prefix('manager')->name('manager.')->middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
-    'verified'
+    'verified',
+    'admin'
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', [ManagerDashboardController::class, 'index'])->name('dashboard');
+    Route::resource('locations', ManagerLocationController::class);
+    Route::resource('types', ManagerTypeController::class);
+    Route::resource('drivers', ManagerDriverController::class);
+    Route::resource('cars', ManagerCarController::class);
+    Route::resource('rents', ManagerRentController::class);
+
 });
+
+
