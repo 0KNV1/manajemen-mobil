@@ -14,7 +14,8 @@ class Rent extends Model
         'car_id',
         'start_date',
         'end_date',
-        'status'
+        'status',
+        'total_consume',
     ];
     protected $dates = [
         'start_date',

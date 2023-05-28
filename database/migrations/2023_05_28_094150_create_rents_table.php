@@ -29,6 +29,7 @@ return new class extends Migration
             // relation to rent and user
             $table->foreignId('car_id')->constrained();
             $table->foreignId('user_id')->constrained();
+            $table->foreignId('driver_id')->constrained()->nullable();
 
             $table->softDeletes();
             $table->timestamps();
