@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Manager;
 
+use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
+use App\Models\Driver;
 use Illuminate\Http\Request;
+use Yajra\DataTables\Facades\DataTables;
 
 class DriverController extends Controller
 {
@@ -14,7 +17,28 @@ class DriverController extends Controller
      */
     public function index()
     {
-        //
+        if (request()->ajax()) {
+            $query = Driver::query();
+
+            return DataTables::of($query)
+                ->addColumn('action', function ($type) {
+                    return '
+                        <a class="block w-full px-2 py-1 mb-1 text-xs text-center text-white transition duration-500 bg-gray-700 border border-gray-700 rounded-md select-none ease hover:bg-gray-800 focus:outline-none focus:shadow-outline"
+                            href="' . route('manager.drivers.edit', $type->id) . '">
+                            Sunting
+                        </a>
+                        <form class="block w-full" onsubmit="return confirm(\'Apakah anda yakin?\');" -block" action="' . route('manager.drivers.destroy', $type->id) . '" method="POST">
+                        <button class="w-full px-2 py-1 text-xs text-white transition duration-500 bg-red-500 border border-red-500 rounded-md select-none ease hover:bg-red-600 focus:outline-none focus:shadow-outline" >
+                            Hapus
+                        </button>
+                            ' . method_field('delete') . csrf_field() . '
+                        </form>';
+                })
+                ->rawColumns(['action'])
+                ->make();
+        }
+
+        return view('manager.drivers.index');
     }
 
     /**
@@ -24,7 +48,7 @@ class DriverController extends Controller
      */
     public function create()
     {
-        //
+        return view('manager.drivers.create');
     }
 
     /**
@@ -35,7 +59,12 @@ class DriverController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $data['slug'] = Str::slug($data['name']) . '-' . Str::lower(Str::random(5));
+
+        Driver::create($data);
+
+        return redirect()->route('manager.drivers.index');
     }
 
     /**
