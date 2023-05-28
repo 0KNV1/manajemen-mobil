@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Manager;
 
 use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\DriverRequest;
 use App\Models\Driver;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
@@ -84,9 +85,11 @@ class DriverController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Driver $driver)
     {
-        //
+        return view('manager.drivers.edit', [
+            'driver' => $driver,
+        ]);
     }
 
     /**
@@ -96,10 +99,16 @@ class DriverController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(DriverRequest $request, Driver $driver)
     {
-        //
+        $data = $request->all();
+        $data['slug'] = Str::slug($data['name']) . '-' . Str::lower(Str::random(5));
+
+        $driver->update($data);
+
+        return redirect()->route('manager.drivers.index');
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -107,8 +116,10 @@ class DriverController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Driver $driver )
     {
-        //
+        $driver->delete();
+
+        return redirect()->route('manager.drivers.index');
     }
 }

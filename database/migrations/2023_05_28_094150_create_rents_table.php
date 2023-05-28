@@ -23,11 +23,12 @@ return new class extends Migration
 
             // total price
             $table->integer('total_consume')->nullable();
+            //status
+            $table->string('status')->default('available');
 
             // relation to rent and user
             $table->foreignId('car_id')->constrained();
-            $table->foreignId('driver_id')->constrained();
-            $table->foreignId('manager_id')->constrained();
+            $table->foreignId('user_id')->constrained();
 
             $table->softDeletes();
             $table->timestamps();

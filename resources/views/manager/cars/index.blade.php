@@ -2,7 +2,7 @@
     <x-slot name="title">manager</x-slot>
     <x-slot name="header">
         <h2 class="text-xl font-semibold leading-tight text-gray-800">
-            {{ __('Type') }}
+            {{ __('car') }}
         </h2>
     </x-slot>
 
@@ -24,12 +24,28 @@
                         name: 'id',
                     },
                     {
+                        data: 'thumbnail',
+                        name: 'thumbnail'
+                    },
+                    {
                         data: 'name',
                         name: 'name'
                     },
                     {
-                        data: 'slug',
-                        name: 'slug'
+                        data: 'type.name',
+                        name: 'type.name'
+                    },
+                    {
+                        data: 'location.name',
+                        name: 'location.name'
+                    },
+                    {
+                        data: 'driver.name',
+                        name: 'driver.name'
+                    },
+                    {
+                        data: 'consume_oil',
+                        name: 'consume_oil'
                     },
                     {
                         data: 'action',
@@ -46,9 +62,9 @@
     <div class="py-12">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="mb-10">
-                <a href="{{ route('manager.drivers.create') }}"
+                <a href="{{ route('manager.cars.create') }}"
                     class="px-4 py-2 font-bold text-white bg-green-500 rounded shadow-lg hover:bg-green-700">
-                    + Tambahkan driver
+                    + Tambahkan mobil
                 </a>
             </div>
             <div class="overflow-hidden shadow sm:rounded-md">
@@ -57,8 +73,12 @@
                         <thead>
                             <tr>
                                 <th style="max-width: 1%">ID</th>
+                                <th>Thumbnail</th>
                                 <th>Nama</th>
-                                <th>Slug</th>
+                                <th>Type</th>
+                                <th>Location</th>
+                                <th>penanggung jawab</th>
+                                <th>Level_konsumsu_BBM</th>
                                 <th style="max-width: 1%">Aksi</th>
                             </tr>
                         </thead>
