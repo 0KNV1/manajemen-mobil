@@ -18,9 +18,9 @@ class IsManager
     {
         if (auth()->check() && auth()->user()->roles == "MANAGER") {
             return $next($request);
-        }
+    }
 
-        return redirect('/');
+    return redirect()->route('dashboard');
 
     }
 }

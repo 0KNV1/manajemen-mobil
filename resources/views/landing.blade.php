@@ -1,80 +1,5 @@
 <x-front-layout>
     <!-- Hero -->
-    <section class="container relative pb-[100px] pt-[30px]">
-        <div class="flex flex-col items-center justify-center gap-[30px]">
-            <!-- Preview Image -->
-            <div class="relative">
-                <div class="absolute z-0 hidden lg:block">
-                    <div class="font-extrabold text-[220px] text-darkGrey tracking-[-0.06em] leading-[101%]">
-                        <div data-aos="fade-right" data-aos-delay="300">
-                            NEW
-                        </div>
-                        <div data-aos="fade-left" data-aos-delay="600">
-                            PORSCHE
-                        </div>
-                    </div>
-                </div>
-                <img src="/images/porsche.webp" class="w-full max-w-[963px] z-10 relative" alt=""
-                    data-aos="zoom-in" data-aos-delay="950">
-            </div>
-
-            <div class="flex flex-col lg:flex-row items-center justify-around lg:gap-[60px] gap-7">
-                <!-- Car Details -->
-                <div class="flex items-center gap-y-12">
-                    <div class="flex flex-col items-center gap-[2px] px-3 md:px-10" data-aos="fade-left"
-                        data-aos-delay="1400">
-                        <h6 class="font-bold text-dark text-xl md:text-[26px] text-center">
-                            380
-                        </h6>
-                        <p class="text-sm font-normal text-center md:text-base text-secondary">
-                            Horse Power
-                        </p>
-                    </div>
-                    <span class="vr" data-aos="fade-left" data-aos-delay="1600"></span>
-                    <div class="flex flex-col items-center gap-[2px] px-3 md:px-10" data-aos="fade-left"
-                        data-aos-delay="1900">
-                        <h6 class="font-bold text-dark text-xl md:text-[26px] text-center">
-                            12S
-                        </h6>
-                        <p class="text-sm font-normal text-center md:text-base text-secondary">
-                            Speed AT
-                        </p>
-                    </div>
-                    <span class="vr" data-aos="fade-left" data-aos-delay="2100"></span>
-                    <div class="flex flex-col items-center gap-[2px] px-3 md:px-10" data-aos="fade-left"
-                        data-aos-delay="2400">
-                        <h6 class="font-bold text-dark text-xl md:text-[26px] text-center">
-                            AWD
-                        </h6>
-                        <p class="text-sm font-normal text-center md:text-base text-secondary">
-                            Drive
-                        </p>
-                    </div>
-                    <span class="vr" data-aos="fade-left" data-aos-delay="2600"></span>
-                    <div class="flex flex-col items-center gap-[2px] px-3 md:px-10" data-aos="fade-left"
-                        data-aos-delay="2900">
-                        <h6 class="font-bold text-dark text-xl md:text-[26px] text-center">
-                            A.I
-                        </h6>
-                        <p class="text-sm font-normal text-center md:text-base text-secondary">
-                            Tracking
-                        </p>
-                    </div>
-                </div>
-                <!-- Button Primary -->
-                <div class="p-1 rounded-full bg-primary group" data-aos="zoom-in" data-aos-delay="3400">
-                    <a href="#popularCars" class="btn-primary">
-                        <p class="transition-all duration-[320ms] translate-x-3 group-hover:-translate-x-1">
-                            Peminjaman Mobil Kantor
-                        </p>
-                        <img src="/svgs/ic-arrow-right.svg"
-                            class="opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-[320ms]"
-                            alt="">
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Popular Cars -->
     <section class="bg-darkGrey" id="popularCars">
@@ -235,7 +160,7 @@
                         Drive Yours Today. <br>
                         Drive Faster.
                     </h2>
-                    <p class="text-base text-subtlePars">Get an instant booking to catch up whatever your
+                    <p class="text-base text-subtlePars">Get an new way to manage car and catch up whatever your
                         really want to achieve today, yes.</p>
                 </header>
                 <!-- Button Primary -->
