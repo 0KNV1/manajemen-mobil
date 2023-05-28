@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\Manager\DashboardController as ManagerDashboardController;
 use App\Http\Controllers\Manager\LocationController as ManagerLocationController;
 use App\Http\Controllers\Manager\TypeController as ManagerTypeController;
@@ -26,7 +27,7 @@ Route::prefix('manager')->name('manager.')->middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
-    'admin'
+    'manager'
 ])->group(function () {
     Route::get('/dashboard', [ManagerDashboardController::class, 'index'])->name('dashboard');
     Route::resource('locations', ManagerLocationController::class);
