@@ -21,6 +21,7 @@ return new class extends Migration
             $table->foreignId('driver_id')->constrained();
             $table->foreignId('location_id')->constrained();
             $table->foreignId('type_id')->constrained();
+            $table->foreignId('rent_id')->constrained();
 
             $table->string('photos')->nullable();
 

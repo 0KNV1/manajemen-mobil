@@ -32,7 +32,7 @@
                 <!-- Logo & Toggler Button here -->
                 <div class="flex items-center justify-between">
                     <!-- LOGO -->
-                    <a href="{{ route('front.index') }}">
+                    <a href="{{ route('dashboard') }}">
                         <img src="/svgs/logo.svg" alt="stream" />
                     </a>
                     <!-- RESPONSIVE NAVBAR BUTTON TOGGLER -->

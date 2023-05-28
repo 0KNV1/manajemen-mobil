@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Admin\DetailController;
+use App\Http\Controllers\Admin\RentController;
+use App\Http\Controllers\LandingController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Manager\DashboardController as ManagerDashboardController;
@@ -20,10 +23,14 @@ use App\Http\Controllers\Manager\RentController as ManagerRentController;
 */
 
 
-Route::get('/', [LandingController::class, 'index'])->name('index');
+Route::get('/', [LandingController::class, 'index'])->name('dashboard');
 Route::get('/detail/{slug}', [DetailController::class, 'index'])->name('detail');
 
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/rent/{slug}', [RentController::class, 'index'])->name('rent');
+    Route::post('/rent/{slug}', [RentController::class, 'store'])->name('rent.store');
 
+});
 Route::prefix('manager')->name('manager.')->middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
